@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+<% if @album_images.present? %>
+	<% @album_images.each do |images| %>
+	
+<% end %>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Album Images</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @album_images.each do |album_image| %>
+      <tr>
+     
+    
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb" style="border: 1px black;">
+       <label for="exampleInputName2">Tag Line: </label>
+			<label for="exampleInputName2"><%= album_image.tag_line %> </label><br/>
+      <label for="exampleInputName2">Created By: </label>
+       <label for="exampleInputName2"><%= album_image.album.user.email %> </label><br/>
+       <label for="exampleInputName2">Created on: </label>
+        <label for="exampleInputName2"><%= album_image.created_at.to_date %> </label><br/>
+      <%= link_to 'Destroy', album_album_image_path(@album,album_image), method: :delete, data: { confirm: 'Are you sure?' } %>
+			<!-- < %= images.album.user.email %> -->
+			<%= image_tag(album_image.image_url, class: "img-responsive") %>
+			</div>
+     <!--  < %= image_tag(images.image_url, width: '100', height: '100', alt: 'Site Logo', class: "logo") %> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if @album_images.count < 25 %>
+<%= link_to 'New Album image', new_album_album_image_path(@album) %>
+<% else %>
+<h6> Image limit has reached 25 Please Create new album </h6>
+<% end %>

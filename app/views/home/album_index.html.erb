@@ -1,0 +1,13 @@
+<h1>Listing Albums</h1>
+
+    <% @albums.each do |album| %>
+    <div class="form-group">
+    <label for="exampleInputName2">Album Name: </label>
+    <label for="exampleInputName2"><%= album.album_name %></label><br/> 
+    <label for="exampleInputName2">Created By: </label>
+    <label for="exampleInputName2"><%= album.user.email %></label><br/>
+    <label for="exampleInputName2">Created On: </label>
+    <label for="exampleInputname2"><%= album.created_at.to_date %></label>
+
+     <td><%= link_to 'Show',  album_images_index_path(album) , class:"btn pull-right" %></td>
+     <% end %>

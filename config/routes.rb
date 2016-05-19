@@ -1,11 +1,25 @@
 Rails.application.routes.draw do
   
   
-  resources :folders 
+
+  #resources :albums
+  resources :albums do 
+    resources :album_images do
+    # get :new_album_image_path , on: :collection
+  end
+  end
+
   devise_for :users
-  root_path GET / folders#index
+  # root_path GET / folders#index
   
-  # root 'folders#index'
+  root 'home#home'
+
+ 
+get "home/album_index" => 'home#album_index', :as => 'album_index'
+get "home/albums/:id'" => 'albums#album_images_index', :as=> 'album_images_index'
+# devise_scope :user do  
+#    get '/users/sign_out' => 'devise/sessions#destroy'     
+# end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,13 @@
+ <h1>Images</h1>
+ <% @album_images.each do |images| %>
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb" style="border: 1px black;">
+      <label for="exampleInputName2">Tag Line: </label>
+      <label for="exampleInputName2"><%= images.tag_line %></label><br/>
+      <label for="exampleInputName2">Created By: </label>
+        <label for="exampleInputName2"><%= images.album.user.email %> </label><br/>
+             <label for="exampleInputName2">Created On: </label>
+              <label for="exampleInputName2"><%= images.created_at.to_date %> </label><br/>
+		
+			<%= image_tag(images.image_url, class: "img-responsive") %>
+			</div>
+<% end %>

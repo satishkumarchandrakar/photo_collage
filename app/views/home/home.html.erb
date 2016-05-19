@@ -1,0 +1,68 @@
+<%= render 'devise/shared/links' %>
+
+
+
+    <!-- Navigation -->
+    
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Thumbnail Gallery</h1>
+            </div>
+            <% @album_images.each do |images| %>
+            
+			<div class="col-lg-3 col-md-4 col-xs-6 thumb" style="border: 1px black;">
+             <label for="exampleInputName2">Tag Line: </label>
+            <label for="exampleInputName2"><%= images.tag_line %> </label><br/>
+      <label for="exampleInputName2">Created By: </label>
+       <label for="exampleInputName2"><%= images.album.user.email %> </label><br/>
+       <label for="exampleInputName2">Created on: </label>
+        <label for="exampleInputName2"><%= images.created_at.to_date %> </label><br/>
+			<!-- < %= images.album.user.email %> -->
+			<%= image_tag(images.image_url, class: "img-responsive") %>
+            
+			</div>
+			<% end %>
+        </div>
+        <div class="row">
+
+
+
+            <!-- <div class="col-lg-12">
+                <h1 class="page-header">Thumbnail Gallery</h1>
+            </div> -->
+
+           <!--  < % @users.each do |user| %>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb" style="border: 1px black;">
+            < %= user.email %>
+            < % if user.albums.present? %>
+            < % user.albums.each do |album| %>
+            < %= album.album_name %>
+            <  % if album.album_images.present? %>
+            < % album.album_images.each do |image| %>
+            < %= image_tag(image.image_url, class: "img-responsive") %>
+            < % end %>
+            < % end %>
+            < % end%>
+             < % end%> -->
+            <!-- < %= images.album.user.email %> -->
+            
+           <!--  </div> -->
+           <!--  < % end %> -->
+          
+        </div>
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>

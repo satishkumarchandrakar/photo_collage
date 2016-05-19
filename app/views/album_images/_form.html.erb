@@ -1,0 +1,17 @@
+<%= form_for([@album,@album_image]) do |f| %>
+  <% if @album_image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@album_image.errors.count, "error") %> prohibited this album_image from being saved:</h2>
+      <ul>
+      <% @album_image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.text_field :tag_line %>
+<%= f.file_field :image %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

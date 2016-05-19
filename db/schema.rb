@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516113726) do
+ActiveRecord::Schema.define(version: 20160516170049) do
 
-  create_table "folders", force: :cascade do |t|
+  create_table "album_images", force: :cascade do |t|
+    t.integer  "album_id",   limit: 4
+    t.string   "image",      limit: 255
+    t.string   "tag_line",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "albums", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
-    t.string   "name",       limit: 255
+    t.string   "album_name", limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

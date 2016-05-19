@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1> Album List</h1>
+
+    <% @albums.each do |album| %>
+    <div class="form-group">
+    <label for="exampleInputName2">Album Name: </label>
+    <label for="exampleInputName2"><%= album.album_name %></label><br/>
+      <label for="exampleInputName2">Created By: </label>
+    <label for="exampleInputName2"><%= album.user.email %></label><br/>
+    <label for="exampleInputName2">Created On: </label>
+    <label for="exampleInputname2"><%= album.created_at.to_date %></label>  
+        <td><%= link_to 'Show', album , class:"btn pull-right" %></td>
+        <td><%= link_to 'Edit', edit_album_path(album) , class:"btn pull-right" %></td>
+        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn pull-right"%></td>
+      </div>
+    <% end %>
+<%= link_to 'New Album', new_album_path %>
